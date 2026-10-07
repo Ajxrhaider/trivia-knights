@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a5b4fc"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <rect width="1200" height="600" fill="url(#glow)"/>
+  <g stroke="#6366f1" stroke-opacity="0.08">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+    <line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="900" y1="0" x2="900" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+    <line x1="1100" y1="0" x2="1100" y2="600"/>
+  </g>
+  <g stroke="url(#indigo)" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.85">
+    <line x1="400" y1="180" x2="800" y2="500"/>
+    <line x1="800" y1="180" x2="400" y2="500"/>
+  </g>
+  <circle cx="400" cy="180" r="14" fill="#6366f1"/>
+  <circle cx="800" cy="180" r="14" fill="#6366f1"/>
+  <circle cx="400" cy="500" r="14" fill="#6366f1"/>
+  <circle cx="800" cy="500" r="14" fill="#6366f1"/>
+  <path d="M500 140 L540 80 L600 120 L660 80 L700 140 Z" fill="url(#indigo)"/>
+  <text x="600" y="340" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="64" font-weight="700" fill="#ffffff">TRIVIA</text>
+  <text x="600" y="410" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="64" font-weight="700" fill="#a5b4fc">KNIGHTS</text>
+  <text x="600" y="450" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" letter-spacing="4" fill="#94a3b8">A TRIVIA RPG · POWERED BY GEMINI</text>
+</svg>

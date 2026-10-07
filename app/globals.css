@@ -1,26 +1,129 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   Trivia Knights — Global Styles
+   Design system inspired by Hizaki Labs.
+   ============================================ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-secondary: #e5e7eb;
+  --color-ink-900: #0f172a;
+  --color-ink-800: #1e293b;
+  --color-ink-700: #334155;
+  --radius-default: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ink-900);
+  color: var(--color-secondary);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Subtle starfield / grid backdrop for the entire app */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.12), transparent 50%),
+    linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Utility: floating damage/heal numbers */
+.damage-popup {
+  position: absolute;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  pointer-events: none;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Selection */
+::selection {
+  background: #6366f1;
+  color: white;
+}
+
+/* Button base class — used by interactives */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-display font-semibold text-white shadow-glow transition-all duration-200;
+}
+.btn-primary:hover {
+  @apply bg-primary-600 scale-105;
+}
+.btn-primary:active {
+  @apply scale-95;
+}
+.btn-primary:disabled {
+  @apply cursor-not-allowed opacity-50 hover:scale-100;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-secondary/20 bg-ink-800/60 px-6 py-3 font-display font-semibold text-secondary backdrop-blur transition-all duration-200;
+}
+.btn-ghost:hover {
+  @apply scale-105 border-primary/60 text-white;
+}
+
+.card {
+  @apply rounded-xl border border-secondary/10 bg-ink-800/70 p-6 shadow-card backdrop-blur;
+}
+
+/* Pulse ring used on the active enemy */
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid #6366f1;
+  animation: ringPulse 2.2s ease-out infinite;
+}
+@keyframes ringPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
